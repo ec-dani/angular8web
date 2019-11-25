@@ -1,12 +1,12 @@
 <div class="container">
   <h2 class="text center"> Bienvenido al Login</h2>
-  <form>
+  <form #loginForm="ngForm" (ngSubmit)="login(loginForm.form)">
     <div class="form-row text-center">
       <div class="col">
-        <input type="text" class="form-control" name="Email" placeholder="Email">
+        <input type="text" class="form-control" name="email" placeholder="Email" ngModel>
       </div>
       <div class="col">
-        <input type="password" class="form-control" name="password" placeholder="password">
+        <input type="password" class="form-control" name="password" placeholder="password" ngModel>
       </div>
           <button type="submit" class="btn btn-primary" > Login </button>
     </div>

@@ -3,7 +3,7 @@ import { ServiceService } from '../../../services/service.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import{ Token } from '../../../interfaces/token';
-//import { CookieService } from 'ngx-cookie-service';
+
 
 @Component({
   selector: 'app-login',
@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
       alert('Login correcto');
       //this.cookieService.set('token', response.token);
       this.api.token(response.token);
-      this.router.navigateByUrl('/user/profile');
+      this.router.navigateByUrl('/user/perfil');
     }, (error: HttpErrorResponse) => {
       alert(error.message);
     });
