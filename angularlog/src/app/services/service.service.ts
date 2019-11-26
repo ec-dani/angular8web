@@ -24,6 +24,10 @@ export class ServiceService {
     return this.http.post(`${this.adress}user/login`, user );
   }
 
+  registrarUser(user: User){
+    return this.http.post(`${this.adress}user/create`, user);
+  }
+
   token(token: string){
     httpOptions.header= httpOptions.header.set('token-access', token );
     console.log(httpOptions.header.get('token-access'));

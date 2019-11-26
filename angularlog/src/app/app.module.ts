@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './componentes/user/login/login.component';
 import { PerfilComponent } from './componentes/user/perfil/perfil.component';
 import { FormsModule } from '@angular/forms';
+import { RegistroComponent } from './componentes/user/registro/registro.component';
 //Cookieservices???
 
 @NgModule({
@@ -13,6 +14,7 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     LoginComponent,
     PerfilComponent,
+    RegistroComponent,
     ],
   imports: [
     HttpClientModule,
