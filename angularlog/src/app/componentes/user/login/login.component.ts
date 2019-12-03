@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
     console.log(data.value);
     this.api.loginUser(data.value).subscribe((response: Token) => {
       alert('Login correcto');
-      this.api.token(response.token);
+      //this.api.token(response.token);
       this.router.navigateByUrl('/user/perfil');
     }, (error: HttpErrorResponse) => {
       alert(error.message);

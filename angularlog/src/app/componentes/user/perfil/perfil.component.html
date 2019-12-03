@@ -1,1 +1,31 @@
-<p>perfil works!</p>
+<div class="container">
+  <br>
+  <div class="row">
+  <div class="col">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>titulo</th>
+          <th>ISBN</th>
+          <th>Descripcion</th>
+          <th>Autor</th>
+          <th>Fecha de publicacion</th>
+          <th>Precio(€)</th>
+          <th>Editorial</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let book of book, ">
+          <td>{{ book.titulo }}</td>
+          <td>{{ book.isbn }}</td>
+          <td>{{ book.descripcion }}</td>
+          <td>{{ book.autor }}</td>
+          <td>{{ book.fechapublicacion }}</td>
+          <td>{{ book.precio }}</td>
+          <td>{{ book.editorial }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+</div>

@@ -1,12 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient,HttpHeaders} from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 import { User } from './../interfaces/user';
+import { Book } from './../interfaces/book';
 
-const httpOptions = {
-  header: new HttpHeaders({
-  'token-access': 'mytoken'
-})
-}
 
 @Injectable({
   providedIn: 'root'
@@ -28,13 +24,9 @@ export class ServiceService {
     return this.http.post(`${this.adress}user/create`, user);
   }
 
-  token(token: string){
-    httpOptions.header= httpOptions.header.set('token-access', token );
-    console.log(httpOptions.header.get('token-access'));
+  getAllBooks(){
+    return this.http.get(`${this.adress}book/todos`)
   }
 
-  authToken(token: string){
-    httpOptions.header= httpOptions.header.set('token-access', token );
-    return this.http.get(`${this.adress}user/me/token`, { headers : httpOptions.header} );
-  }
+  
 }
