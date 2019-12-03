@@ -25,8 +25,26 @@ export class ServiceService {
   }
 
   getAllBooks(){
-    return this.http.get(`${this.adress}book/todos`)
+    return this.http.get(`${this.adress}book/todos`);
   }
 
-  
+  getBookbyTitle(param: string){
+    return this.http.get(`${this.adress}book/uno/titulo/${param}`);
+  }
+
+  getBookbyISBN(param: string){
+    return this.http.get(`${this.adress}book/uno/isbn/${param}`);
+  }
+
+  getBookbyAutor(param: string){
+    return this.http.get(`${this.adress}book/uno/autor/${param}`);
+  }
+
+  getBookbyFechapubli(param: string){
+    return this.http.get(`${this.adress}book/uno/fechapublicacion/${param}`);
+  }
+
+  getBookbyEditorial(param: string){
+    return this.http.get(`${this.adress}book/uno/editorial/${param}`);
+  }
 }

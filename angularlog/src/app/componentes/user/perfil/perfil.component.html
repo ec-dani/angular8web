@@ -1,11 +1,21 @@
 <div class="container">
-  <br>
+  <h2>Listado de libros</h2>
+  <form #tituloForm="ngForm" (ngSubmit)="getBookbyTitulo(tituloForm.form)">
+      <div class="form-row">
+          <div class="col-10">
+            <input type="text" class="form-control" placeholder="Buscar titulo...">
+          </div>
+          <div class="col">
+            <button type="submit" class="btn btn-outline-secondary">Buscar</button>
+          </div>
+      </div>
+  </form>
   <div class="row">
   <div class="col">
     <table class="table">
       <thead>
         <tr>
-          <th>titulo</th>
+          <th>Titulo</th>
           <th>ISBN</th>
           <th>Descripcion</th>
           <th>Autor</th>
@@ -15,7 +25,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let book of book, ">
+        <tr *ngFor="let book of book">
           <td>{{ book.titulo }}</td>
           <td>{{ book.isbn }}</td>
           <td>{{ book.descripcion }}</td>
