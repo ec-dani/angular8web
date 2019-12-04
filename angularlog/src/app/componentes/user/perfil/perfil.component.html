@@ -1,9 +1,19 @@
 <div class="container">
   <h2>Listado de libros</h2>
-  <form #tituloForm="ngForm" (ngSubmit)="getBookbyTitulo(tituloForm.form)">
+  <form #tituloForm="ngForm" (ngSubmit)="submit(tituloForm.form)">
       <div class="form-row">
-          <div class="col-10">
-            <input type="text" class="form-control" placeholder="Buscar titulo...">
+        <div class="col">
+            <select class="form-control" id="BuscaPorCampo" ngModel name="opcion">
+              <option>Titulo</option>
+              <option>ISBN</option>
+              <option>Autor</option>
+              <option>Fechapublicacion</option>
+              <option >Editorial</option>
+              <option >Todos</option>
+            </select>
+        </div>
+          <div class="col-9">
+            <input type="text" name="input" ngModel class="form-control" placeholder="Buscar">
           </div>
           <div class="col">
             <button type="submit" class="btn btn-outline-secondary">Buscar</button>
@@ -25,7 +35,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let book of book">
+        <tr *ngFor="let book of books">
           <td>{{ book.titulo }}</td>
           <td>{{ book.isbn }}</td>
           <td>{{ book.descripcion }}</td>
