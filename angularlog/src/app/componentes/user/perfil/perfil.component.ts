@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../../../services/service.service';
 import { Book } from '../../../interfaces/book';
 import { HttpErrorResponse } from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-perfil',
@@ -12,13 +14,21 @@ export class PerfilComponent implements OnInit {
 
   constructor(
     private api: ServiceService,
+    private cookieService: CookieService,
+    private router: Router,
   ) { }
 
   books: Book[];
 
   ngOnInit() {
-    console.log(localStorage.getItem("token"));
-    this.getAllBooks();
+    const token = this.cookieService.get('token');
+    console.log(token);
+    this.api.authtoken(token).subscribe(response => {
+      this.getAllBooks();
+    }, (error: HttpErrorResponse) => {
+      alert("Error en la autenticacion")
+      this.router.navigateByUrl('/')
+    })
   }
 
   getAllBooks(){
