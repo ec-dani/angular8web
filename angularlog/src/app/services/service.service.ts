@@ -30,7 +30,7 @@ export class ServiceService {
   }
 
   authtoken(token: string){
-    httpOptions.header= httpOptions.header.set('token', token);
+    httpOptions.header= httpOptions.header.set('authorization', token);
     return this.http.get(`${this.adress}user/private`, {headers: httpOptions.header});
   }
 

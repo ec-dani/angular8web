@@ -1,11 +1,13 @@
 <h1 class= "text-center">{{ title }}</h1>
   <div class="container">
-    <p class="text-center">Mi primera prueba con Angular </p>
+    <p class="text-center">{{ mensaje}} </p>
     <div class="row">
       <div class="col text-center">
-        <button type="button" class="btn btn-dark" (click)="login()">Ver Login</button>
-        <button type="button" class="btn  btn-secondary" (click)="registrar()" > Ver Registro</button>
+        <button type="button" class="btn btn-dark m-2" (click)="login()">Ver Login</button>
+        <button type="button" class="btn  btn-secondary m-2" (click)="registrar()" > Ver Registro</button>
+        <button type="button" class="btn btn-outline-dark m-2" (click)="perfil()"> Ver Perfil </button>
       </div>
     </div>
   </div>
 <router-outlet></router-outlet>
+<div class="text-center m-4"> Haz Login para ver el contenido 👀 </div>

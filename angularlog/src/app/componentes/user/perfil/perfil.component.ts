@@ -22,7 +22,6 @@ export class PerfilComponent implements OnInit {
 
   ngOnInit() {
     const token = this.cookieService.get('token');
-    console.log(token);
     this.api.authtoken(token).subscribe(response => {
       this.getAllBooks();
     }, (error: HttpErrorResponse) => {
@@ -31,12 +30,17 @@ export class PerfilComponent implements OnInit {
     })
   }
 
+  logout(){
+    this.cookieService.delete('token', '/')
+    console.log("Se borra las cookies")
+    this.router.navigateByUrl('/')
+  }
+
   getAllBooks(){
     this.api.getAllBooks().subscribe((book: Book[]) => (this.books = book));
   }
 
   getBookbyTitulo(form){
-    console.log(form);
     this.api.getBookbyTitle(form.value.input).subscribe((data: Book[]) => {
       console.log(data);
       this.books=data;

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ServiceService } from '../../../services/service.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -16,6 +16,7 @@ export class RegistroComponent implements OnInit {
     private router: Router,
     private cookieService: CookieService,
   ) { }
+  
 
   ngOnInit() {
   }
@@ -25,7 +26,6 @@ export class RegistroComponent implements OnInit {
     this.api.registrarUser(data.value).subscribe((response:{token: string}) => {
       this.cookieService.set('token', response.token);
       console.log( response.token);
-      alert('usuario guardado correctamente');
       this.router.navigateByUrl('/user/perfil');
     }, (error: HttpErrorResponse) => {
       console.log(error)
